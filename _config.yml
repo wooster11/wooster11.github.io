@@ -6,14 +6,12 @@ description: > # this means to ignore newlines until "baseurl:"
  The programming adventures of the Object Oriental.
  A simple blog discussing my various encounters in the realm of programming.
 baseurl: "" # the subpath of your site, e.g. /blog/
-url: "http://yourdomain.com" # the base hostname & protocol for your site
+url: "http://wooster11.github.io" # the base hostname & protocol for your site
 twitter_username: RidinDaWooTrain
 github_username:  wooster11
 timezone: America/Los_Angeles
 
 # Build settings
 markdown: kramdown
-
-# Text Settings
 encoding: utf-8
 highlighter: rouge
