@@ -4,9 +4,9 @@ title:  "Picking the Right LINQ Extension Methods for Collections"
 date:   2014-09-15 09:04:50
 tags: [linq, csharp, efficiency, for loop]
 ---
-LINQ has been a great feature for .NET developers when it was introduced in the .NET 3.5 Framework. It has quickly become the de facto standard for filtering or retrieving items from list. Typical use of LINQ extension methods on a collection would qualify as elegant code - clear, concise, and easy to maintain.
+LINQ has been a great feature for .NET developers when it was introduced in the .NET 3.5 Framework. It has quickly become the de facto standard for filtering or retrieving items from lists. Typical use of LINQ extension methods on a collection would qualify as elegant code - clear, concise, and easy to maintain.
 
-However, there continues to be some misuse of said LINQ queries which cause inefficiencies in code that don't really need to be there. From what I can tell, it seems that some developers have a fundamental misunderstanding of what is going on behind the scenes of these extension methods.
+However, there continues to be some misuse of LINQ queries which cause inefficiencies in code that don't really need to be there. From what I can tell, it seems that some developers have a fundamental misunderstanding of what is going on behind the scenes of these extension methods which lead to these inefficiencies.
 
 Keeping with the Object Oriental theme, let's take this list of twenty employees as an example:
 
@@ -28,7 +28,7 @@ With a list like this, a common scenario would be to get the first employee with
 The common for loop to accomplish this is as follows:
 {% highlight csharp %}
 //Assume that we already have a list of all the employees in the
-//aforementioned list called "Employees"
+//aforementioned table called "Employees"
 foreach (var emp in Employees)
 {
     if (emp.LastName == "Wong")
@@ -36,9 +36,9 @@ foreach (var emp in Employees)
 }
 {% endhighlight %}
 
-As you can see, that is a pretty clear, concise, and efficient for loop. However, with LINQ and lambda expressions, we can cut this down even further and still have it very readable and maintainable. For simple cases like this, there's no reason to have extraneous lines of code which makes LINQ a great candidate to be used for something like this.
+As you can see, that is a pretty clear, concise, and efficient for loop. This snippet of code tells a simple story that's easy to read and understand. However, with LINQ and lambda expressions, we can even further simplify the code and still tell the same exact story without sacrificing readability and maintainability. For simple cases like this, there's no reason to have extraneous lines of code. This is what makes LINQ a great candidate to be used here.
 
-Changing it to a LINQ query would look something like this:
+Changing it to a call to a LINQ extension method would look something like this:
 {% highlight csharp %}
 return Employees.FirstOrDefault(e => e.LastName == "Wong");
 {% endhighlight %}
