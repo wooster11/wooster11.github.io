@@ -11,5 +11,11 @@ layout: default
   <article class="post-content">
     {{ content }}
   </article>
+  
+  <a href="https://twitter.com/intent/tweet?url={{ site.url }}{{ page.url }}&text={{ page.title }}&via={{ site.twitter_username }}" target="_blank">
+	<image src="{{ site.url }}/assets/Twitter_logo_blue_32.png" />
+  </a>
 
 </div>
+
+{% include comments.html %}
